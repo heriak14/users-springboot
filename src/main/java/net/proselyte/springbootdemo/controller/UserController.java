@@ -1,6 +1,7 @@
 package net.proselyte.springbootdemo.controller;
 
 import net.proselyte.springbootdemo.model.User;
+import net.proselyte.springbootdemo.service.JpaUserService;
 import net.proselyte.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,5 +57,12 @@ public class UserController {
     public String updateUser(User user){
         userService.saveUser(user);
         return "redirect:/users";
+    }
+
+    @GetMapping("/user-profile/{id}")
+    public String userProfile(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "user-profile";
     }
 }
