@@ -34,7 +34,7 @@ public class JsonUserService implements UserService {
         if (userToUpdate.isPresent()) {
             updateUser(user, userToUpdate.get());
         } else {
-            user.setId(users.get(users.size() - 1).getId() + 1);
+            user.setId((long) users.size());
             users.add(user);
         }
         userRepository.writeUsers(users);
