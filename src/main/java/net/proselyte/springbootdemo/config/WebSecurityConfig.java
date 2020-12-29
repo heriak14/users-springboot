@@ -1,6 +1,5 @@
 package net.proselyte.springbootdemo.config;
 
-import net.proselyte.springbootdemo.service.JpaUserService;
 import net.proselyte.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
