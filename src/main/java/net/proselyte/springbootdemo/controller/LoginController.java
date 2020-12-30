@@ -1,5 +1,6 @@
 package net.proselyte.springbootdemo.controller;
 
+import net.proselyte.springbootdemo.model.User;
 import net.proselyte.springbootdemo.service.JpaUserService;
 import net.proselyte.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String loginAs(String email, String password) {
-        return "redirect:/users";
+    public String loginAs(User user) {
+        return "redirect:/user-profile/" + user.getId();
     }
 }
